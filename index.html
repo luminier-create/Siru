@@ -102,6 +102,11 @@ h2{font-size:clamp(28px,5vw,40px);font-weight:900;letter-spacing:-1.5px;margin-t
 .contact{text-align:center;background:var(--paper);border:2.5px solid var(--line);border-radius:28px;padding:48px 32px;box-shadow:6px 6px 0 var(--line)}
 .contact h2{margin-bottom:10px}
 .contact p{color:var(--sub);font-weight:600;margin-bottom:26px}
+.email-line{margin-top:22px;margin-bottom:0;font-size:14px;line-height:1.9}
+.email-line a{font-size:17px;font-weight:900;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--peach);word-break:break-all}
+.copy-btn{font-family:inherit;font-weight:800;font-size:12px;padding:4px 12px;margin-left:8px;border:2px solid var(--line);border-radius:999px;background:var(--lemon);cursor:pointer;vertical-align:middle}
+.copy-btn:active{transform:translateY(1px)}
+.copy-btn.done{background:var(--mint)}
 
 footer{text-align:center;padding:40px 20px 56px;color:var(--sub);font-size:13px;font-weight:600}
 
@@ -244,9 +249,13 @@ footer{text-align:center;padding:40px 20px 56px;color:var(--sub);font-size:13px;
       <h2>같이 만들어요</h2>
       <p>이모티콘 제안, 캐릭터 협업, 굿즈 제작 문의는 아래로 연락 주세요.</p>
       <div class="cta">
-        <a class="btn fill" href="mailto:luminier@gmail.com">이메일 보내기</a>
+        <a class="btn fill" href="mailto:luminier@gmail.com?subject=%5B%EC%8B%9C%EB%A3%A8%20SIRU%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A3%A8%EB%A3%A8%20%EC%9E%91%EA%B0%80%EB%8B%98.%0A%0A%28%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%EC%9D%84%20%EC%A0%81%EC%96%B4%EC%A3%BC%EC%84%B8%EC%9A%94%20%29%0A%0A-%20%EB%AC%B8%EC%9D%98%20%EC%9C%A0%ED%98%95%28%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98/%ED%98%91%EC%97%85/%EA%B5%BF%EC%A6%88%20%EB%93%B1%29%3A%0A-%20%ED%9A%8C%EC%8B%A0%EB%B0%9B%EC%9D%84%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A">이메일 보내기</a>
         <a class="btn" href="#gallery">작품 다시 보기</a>
       </div>
+      <p class="email-line">또는 직접 메일 주소로 보내주세요<br>
+        <a id="emailAddr" href="mailto:luminier@gmail.com" data-email="luminier@gmail.com">luminier@gmail.com</a>
+        <button type="button" class="copy-btn" id="copyEmail" aria-label="이메일 주소 복사">복사</button>
+      </p>
     </div>
   </div>
 </section>
@@ -306,6 +315,31 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') step(-1);
   if(e.key==='ArrowRight') step(1);
 });
+
+/* 이메일 주소 복사 */
+(function(){
+  const btn=document.getElementById('copyEmail');
+  const addr=document.getElementById('emailAddr');
+  if(!btn||!addr) return;
+  const email=addr.dataset.email;
+  btn.addEventListener('click',async()=>{
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        await navigator.clipboard.writeText(email);
+      }else{
+        const t=document.createElement('textarea');
+        t.value=email; t.style.position='fixed'; t.style.opacity='0';
+        document.body.appendChild(t); t.focus(); t.select();
+        document.execCommand('copy'); document.body.removeChild(t);
+      }
+      const prev=btn.textContent;
+      btn.textContent='복사됨'; btn.classList.add('done');
+      setTimeout(()=>{ btn.textContent=prev; btn.classList.remove('done'); },1600);
+    }catch(e){
+      window.prompt('아래 주소를 복사하세요', email);
+    }
+  });
+})();
 </script>
 </body>
 </html>
