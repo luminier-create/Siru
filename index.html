@@ -2,7 +2,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFF9F0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
 <title>시루 SIRU — 루루 작가 캐릭터 팬페이지</title>
 <style>
 :root{
@@ -11,19 +16,24 @@
   --line:#1A1A1A; --shadow:0 6px 0 rgba(26,26,26,.9);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
   background:var(--cream); color:var(--ink);
   font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;
   word-break:keep-all; overflow-wrap:break-word; line-height:1.7;
   background-image:radial-gradient(circle at 1px 1px, rgba(26,26,26,.06) 1px, transparent 0);
   background-size:22px 22px;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
+img{max-width:100%}
+a,button{touch-action:manipulation}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:50;background:rgba(255,249,240,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--line)}
-.nav-in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,249,240,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:2px solid var(--line);padding-top:env(safe-area-inset-top)}
+.nav-in{max-width:1080px;margin:0 auto;padding:12px max(20px,env(safe-area-inset-left)) 12px max(20px,env(safe-area-inset-right));display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.5px}
 .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:#fff;object-fit:cover}
 .nav-links{display:flex;gap:6px;flex-wrap:wrap}
@@ -45,6 +55,7 @@ h1{font-size:clamp(44px,9vw,86px);font-weight:900;letter-spacing:-3px;line-heigh
 .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 .btn{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:12px 24px;border:2.5px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--line);transition:.12s;cursor:pointer}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--line)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--line)}
 .btn.fill{background:var(--peach)}
 
 /* SECTION */
@@ -109,8 +120,31 @@ footer{text-align:center;padding:40px 20px 56px;color:var(--sub);font-size:13px;
   .about,.artist{grid-template-columns:1fr;text-align:center;padding:28px}
   .artist img{max-width:180px;margin:0 auto}
   .about img{max-width:220px;margin:0 auto}
-  .nav-links{display:none}
+  /* 내비 링크를 숨기지 않고 가로 스크롤 바로 유지 — 모바일에서도 이동 가능 */
+  .nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:60%;justify-content:flex-end}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{flex:0 0 auto;background:var(--paper);border:2px solid var(--line)}
   .grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+  section{padding:44px 0}
+  header{padding:40px 0 40px}
+  .hero-img{width:170px;height:170px}
+  .b1{width:150px;height:150px;left:-50px}
+  .b2{width:130px;height:130px}
+  .b3{width:90px;height:90px;right:20px}
+  .contact{padding:36px 22px}
+  .cta{flex-direction:column;align-items:stretch}
+  .cta .btn{width:100%;padding:14px 20px}
+  footer{padding:32px 20px calc(40px + env(safe-area-inset-bottom))}
+}
+@media(max-width:420px){
+  .wrap{padding:0 16px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .logo{font-size:17px}
+  .logo img{width:34px;height:34px}
+  h1{letter-spacing:-2px}
+  .spec{grid-template-columns:1fr 1fr}
+  .lb{padding:16px}
+  .lb-close{top:-12px;right:-12px}
 }
 </style>
 </head>
