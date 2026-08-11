@@ -5,13 +5,12 @@ name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
-      - claude/homepage-online-deployment-2m18ecclaude/homepage-online-deployment-2m18ec
+      - claude/homepage-online-deployment-2m18ec
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: n
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
