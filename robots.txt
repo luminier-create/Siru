@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siru-4a476.web.app/sitemap.xml
