@@ -57,6 +57,50 @@ https://YOUR_PROJECT_ID.firebaseapp.com
 
 > 이후 내용을 수정하면 `firebase deploy --only hosting` 만 다시 실행하면 갱신됩니다.
 
+## 홈페이지 전체 내용을 담은 단일 HTML 뽑기
+
+`index.html` 하나에 이미 **모든 내용이 들어 있습니다.** 표정 이미지 53종을 포함한 그림 57장이 전부
+base64로 파일 안에 박혀 있고, CSS와 JavaScript도 인라인이라 외부에서 불러오는 파일이 없습니다.
+즉, 이 파일 하나만 복사해 가면 인터넷이 끊긴 상태에서도 홈페이지 전체가 그대로 보입니다.
+
+### 방법 1 — 저장소 파일을 그대로 쓰기 (가장 간단)
+
+```bash
+git clone https://github.com/luminier-create/Siru.git
+# Siru/index.html 을 원하는 곳으로 복사해서 더블클릭하면 끝
+```
+
+브라우저에서 <https://github.com/luminier-create/Siru/raw/main/index.html> 를 열어
+**다른 이름으로 저장**해도 동일한 파일을 받을 수 있습니다.
+
+### 방법 2 — 배포된 사이트에서 내려받기
+
+```bash
+curl -L https://siru-4a476.web.app/ -o siru.html
+```
+
+브라우저에서는 페이지를 열고 `Ctrl+S`(macOS는 `Cmd+S`) → **웹 페이지, HTML만** 으로 저장하면 됩니다.
+이미지가 파일 안에 들어 있으므로 "전체 저장"을 고를 필요가 없습니다.
+
+### 방법 3 — 100% 독립 파일로 내보내기 (권장)
+
+`index.html` 은 파비콘(`/favicon.png`)만 바깥 파일을 참조합니다. 아래 스크립트를 쓰면 그것까지
+파일 안에 넣어 **참조가 하나도 남지 않은 단일 HTML** 을 만듭니다.
+
+```bash
+python3 tools/export-standalone.py
+# → dist/siru-standalone.html (약 1.9MB)
+
+# 경로를 직접 지정할 수도 있습니다
+python3 tools/export-standalone.py ~/Desktop/시루.html
+```
+
+실행하면 인라인 처리한 파일과 남은 외부 참조를 함께 출력하므로, 결과가
+`남은 로컬 참조: 없음 (완전 독립 파일)` 이면 그 파일만 메일·USB·카톡으로 보내도 그대로 열립니다.
+
+> 참고: `og:image`(SNS 미리보기용)와 `canonical` 주소는 절대 URL이라 그대로 둡니다.
+> 오프라인에서 페이지를 보는 데는 영향이 없고, 링크 공유 시 미리보기가 정상 동작하려면 필요합니다.
+
 ## 모바일 최적화 포함 사항
 
 - `viewport-fit=cover` + safe-area 대응(노치/홈 인디케이터 영역 여백 처리)
