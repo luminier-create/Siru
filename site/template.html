@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" id="tc" content="{{theme_color}}">
+<meta name="color-scheme" content="light dark">
+<script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('siru-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;document.getElementById('tc').content=t==='dark'?'{{theme_color_dark}}':'{{theme_color}}';})();</script>
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="keywords" content="{{keywords}}">
+<meta name="author" content="{{artist_name}}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{site_url}}/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="{{brand}}">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{og_site_name}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{og_description}}">
+<meta property="og:url" content="{{site_url}}/">
+<meta property="og:image" content="{{site_url}}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{og_image_alt}}">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{og_description}}">
+<meta name="twitter:image" content="{{site_url}}/og-image.png">
+
+<link rel="preload" as="image" href="{{hero_src}}" fetchpriority="high">
+<link rel="preload" href="/assets/fonts/pretendard/pretendard.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/fonts/pretendard/pretendard.css"></noscript>
+
+<script type="application/ld+json">{{{jsonld}}}</script>
+<style>{{{styles}}}</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="progress" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5c.7 4.6 2.6 6.9 9.5 9.5-6.9 2.6-8.8 4.9-9.5 9.5-.7-4.6-2.6-6.9-9.5-9.5 6.9-2.6 8.8-4.9 9.5-9.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12.3h15m-5.5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.6A8.3 8.3 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.6 15.6 4.6 4.6"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" transform="rotate(-6 12 12)"/></g><g fill="currentColor"><circle cx="8.6" cy="8.9" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="15.4" cy="15.1" r="1.5"/></g></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14.5V3.5m-4 4 4-4 4 4"/><path d="M8 10.5H6.5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H16"/></g></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11m-4.5-4.5 4.5 4.5 4.5-4.5"/><path d="M4.5 16.5v1.5a2.5 2.5 0 0 0 2.5 2.5h10a2.5 2.5 0 0 0 2.5-2.5v-1.5"/></g></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="3"/><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3.5"/><path d="m4 7 8 6 8-6"/></g></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19.5v-15m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5"/><path d="M20 3.5v5h-5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.5"/><path d="M4 20.5v-5h5"/></g></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 0 2.3-5.4"/><path d="M4.5 3.8v4.6h4.6"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2Z" fill="currentColor" stroke="#1D1714" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-t-about" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 13.2c0-4.3 3-7.6 6.8-7.6s6.8 3.3 6.8 7.6-3 6.3-6.8 6.3-6.8-2-6.8-6.3Z"/><path d="M6.4 8.4C4.8 7.4 3.4 8 3 9.6M17.6 8.4c1.6-1 3-.4 3.4 1.2"/></g><g fill="currentColor"><circle cx="9.5" cy="12.3" r="1.1"/><circle cx="14.5" cy="12.3" r="1.1"/></g><path d="M10.6 15.1c.8.7 2 .7 2.8 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-t-gallery" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2.2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2.2"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="2.2"/></g><path d="M16.8 13.2c.4 2.3 1.3 3.3 3.7 3.6-2.4.4-3.3 1.4-3.7 3.7-.4-2.3-1.3-3.3-3.7-3.7 2.4-.3 3.3-1.3 3.7-3.6Z" fill="currentColor"/></symbol>
+    <symbol id="i-t-artist" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.7 4.8 4.5 4.5L9.3 19.2l-5.4.9.9-5.4 9.9-9.9Z"/><path d="m12.9 6.6 4.5 4.5"/></g></symbol>
+    <symbol id="i-t-contact" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3.5"/><path d="m4 7 8 6 8-6"/></g></symbol>
+    <symbol id="i-t-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top" aria-label="{{brand}} — 처음으로">
+    <span class="brand-mark"><img src="{{logo_src}}" alt="" width="{{logo_w}}" height="{{logo_h}}"></span>
+    <span>{{brand}}</span>
+  </a>
+  <nav class="top-links" aria-label="주요 메뉴">{{{top_links}}}</nav>
+  <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="다크 모드로 전환">
+    <svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg>
+    <svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg>
+  </button>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="orb" style="--x:-18%;--y:2%;--s:70vmax;--c:var(--peach);--dx:50px;--dy:40px;--t:26s"></span>
+    <span class="orb" style="--x:52%;--y:-22%;--s:62vmax;--c:var(--lemon);--dx:-40px;--dy:50px;--t:30s"></span>
+    <span class="orb" style="--x:40%;--y:52%;--s:60vmax;--c:var(--mint);--dx:40px;--dy:-30px;--t:22s"></span>
+    <span class="orb" style="--x:-24%;--y:60%;--s:52vmax;--c:var(--sky);--dx:-30px;--dy:-40px;--t:28s"></span>
+  </div>
+  <div class="wrap hero-grid">
+    <p class="badge intro" style="--d:0">{{hero_badge}}</p>
+
+    <div class="stage intro" id="stage" style="--d:1">
+      <button class="mochi" id="mochi" type="button" aria-label="{{hero_title}} 쓰다듬기">
+        <span class="mochi-inner"><img src="{{hero_src}}" alt="{{hero_alt}}" width="{{hero_w}}" height="{{hero_h}}" fetchpriority="high" draggable="false"></span>
+      </button>
+      <span class="ground" aria-hidden="true"></span>
+      {{{floaters}}}
+      <p class="bubble" id="bubble" role="status" aria-live="polite"></p>
+      <p class="hint" id="hint" aria-hidden="true">
+        <span>{{hero_hint}}</span>
+        <svg viewBox="0 0 60 40"><path d="M4 34c14 2 30-4 40-20m0 0-9 1m9-1 1 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </p>
+    </div>
+
+    <h1 class="hero-title intro" id="hero-title" style="--d:2" aria-label="{{hero_title}}">{{{hero_title_chars}}}<span class="tagword" aria-hidden="true">{{brand}}</span></h1>
+    <p class="tagline intro" style="--d:3">{{{hero_tagline}}}</p>
+    <div class="cta-row intro" style="--d:4">{{{hero_ctas}}}</div>
+  </div>
+</section>
+
+<div class="tapes" aria-hidden="true">
+  <div class="tape a"><div class="tape-track">{{{tape_a}}}</div><div class="tape-track">{{{tape_a}}}</div></div>
+  <div class="tape b"><div class="tape-track">{{{tape_b}}}</div><div class="tape-track">{{{tape_b}}}</div></div>
+</div>
+
+<section class="chat-sec lazy-sec" id="chat" aria-labelledby="chat-h">
+  <div class="wrap chat-grid">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="eyebrow"><svg aria-hidden="true"><use href="#i-star"/></svg>{{chat_tag}}</span>
+        <div><h2 class="h2" id="chat-h">{{chat_heading}}{{{squiggle}}}</h2></div>
+        <p class="lead">{{chat_text}}</p>
+      </div>
+      <div class="stats">{{{stats}}}</div>
+    </div>
+    <div class="phone-wrap reveal" style="--d:2">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="scr-top"><span class="av"><img src="{{logo_src}}" alt="" width="{{logo_w}}" height="{{logo_h}}" loading="lazy"></span><div><b>{{chat_room}}</b><small>2</small></div></div>
+          <div class="thread" id="thread"></div>
+          <div class="scr-bot"><span></span><i>☺</i></div>
+        </div>
+      </div>
+      <button class="btn ghost replay" id="replay" type="button" hidden><svg aria-hidden="true"><use href="#i-replay"/></svg>{{chat_replay}}</button>
+      <p class="sr-only">{{chat_sr}}</p>
+    </div>
+  </div>
+  <script type="application/json" id="chat-data">{{{chat_json}}}</script>
+</section>
+
+<section class="lazy-sec" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><svg aria-hidden="true"><use href="#i-star"/></svg>{{about_tag}}</span>
+      <div><h2 class="h2" id="about-h">{{about_heading}}{{{squiggle}}}</h2></div>
+    </div>
+    <div class="about-grid">
+      <figure class="photo reveal">
+        <span class="tape-bit tl" aria-hidden="true"></span><span class="tape-bit br" aria-hidden="true"></span>
+        <img src="{{about_src}}" alt="{{about_alt}}" width="{{about_w}}" height="{{about_h}}" loading="lazy" decoding="async">
+      </figure>
+      <div class="about-body reveal" style="--d:1">
+        <h3>{{about_title}}</h3>
+        {{{about_paras}}}
+      </div>
+    </div>
+
+    <div class="idzone reveal">
+      <div class="idcard" id="idcard">
+        <div class="id-inner">
+          <div class="id-face id-front">
+            <p class="id-head"><span>{{id_front_title}}</span><small>No. {{id_no}}</small></p>
+            <div class="id-body">
+              <span class="id-photo"><img src="{{hero_src}}" alt="" width="{{hero_w}}" height="{{hero_h}}" loading="lazy"></span>
+              <dl class="id-rows">{{{id_front_rows}}}</dl>
+            </div>
+            <div class="id-foot"><span class="id-bar"></span><span>{{brand}}</span></div>
+            <span class="stamp" aria-hidden="true">{{id_front_stamp}}</span>
+          </div>
+          <div class="id-face id-back">
+            <p class="id-head"><span>{{id_back_title}}</span><span class="secret-tag">{{id_back_badge}}</span></p>
+            <dl class="id-spec">{{{id_back_rows}}}</dl>
+            <div class="id-foot"><span></span><span>{{brand}}</span></div>
+            <span class="stamp" aria-hidden="true">{{id_back_stamp}}</span>
+          </div>
+        </div>
+        <button class="id-toggle" id="idToggle" type="button" aria-pressed="false" aria-label="{{id_toggle_label}}"></button>
+      </div>
+      <p class="id-hint"><svg aria-hidden="true"><use href="#i-flip"/></svg><span id="idHint">{{id_hint}}</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="gal-head">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <span class="eyebrow"><svg aria-hidden="true"><use href="#i-star"/></svg>{{gallery_tag}}</span>
+        <div><h2 class="h2" id="gal-h">{{gallery_heading}}{{{squiggle}}}</h2></div>
+        <p class="gal-count" aria-live="polite"><b id="galCount">{{gallery_count}}</b>{{gallery_count_suffix}}</p>
+      </div>
+      <div class="gal-tools reveal" style="--d:1">
+        <div class="search" role="search">
+          <label class="sr-only" for="q">{{search_label}}</label>
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <input id="q" type="search" placeholder="{{search_placeholder}}" autocomplete="off" enterkeyhint="search">
+          <button class="clear" id="qClear" type="button" aria-label="검색어 지우기" hidden><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+        </div>
+        <button class="btn lemon gacha-btn" id="gacha" type="button"><svg aria-hidden="true"><use href="#i-dice"/></svg>{{gacha_label}}</button>
+      </div>
+    </div>
+    <div class="chips-bar"><div class="chips" role="group" aria-label="감정별 보기">{{{chips}}}</div></div>
+    <ul class="grid" id="grid" role="list">
+{{{cards}}}
+    </ul>
+    <div class="empty" id="empty" hidden>
+      <span class="sticker"><img src="{{empty_src}}" alt="" width="360" height="360" loading="lazy"></span>
+      <b>{{empty_title}}</b>
+      <p>{{empty_text}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="lazy-sec" id="artist" aria-labelledby="artist-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><svg aria-hidden="true"><use href="#i-star"/></svg>{{artist_tag}}</span>
+      <div><h2 class="h2" id="artist-h">{{artist_heading}}{{{squiggle}}}</h2></div>
+    </div>
+    <div class="artist-card reveal">
+      <div class="portrait"><img src="{{artist_src}}" alt="{{artist_alt}}" width="{{artist_w}}" height="{{artist_h}}" loading="lazy" decoding="async"></div>
+      <div class="artist-body">
+        <p class="role">{{artist_role}}</p>
+        <h3 class="artist-name">{{artist_name}}</h3>
+        {{{artist_paras}}}
+        <a class="btn primary" href="#contact">{{artist_cta}}<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      {{{contact_deco}}}
+      <span class="eyebrow"><svg aria-hidden="true"><use href="#i-star"/></svg>{{contact_tag}}</span>
+      <h2 id="contact-h">{{contact_heading}}</h2>
+      <p>{{contact_text}}</p>
+      <div class="cta-row">
+        <a class="btn lemon" href="{{mailto}}"><svg aria-hidden="true"><use href="#i-mail"/></svg>{{contact_cta_mail}}</a>
+        <a class="btn ghost" href="{{contact_cta2_href}}">{{contact_cta2_label}}</a>
+      </div>
+      <p class="mailline">
+        <span>{{contact_or}}</span>
+        <a href="mailto:{{email}}">{{email}}</a>
+        <button class="copy" id="copyEmail" type="button" data-email="{{email}}" aria-label="이메일 주소 복사"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>{{copy_label}}</span></button>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark"><img src="{{logo_src}}" alt="" width="{{logo_w}}" height="{{logo_h}}" loading="lazy"></span><span>{{brand}}</span></a>
+    <p>{{footer}}</p>
+    <a class="to-top" href="#top"><svg aria-hidden="true"><use href="#i-up"/></svg>{{back_to_top}}</a>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="바로가기" style="--n:{{tab_count}}">
+  {{{tabs}}}
+  <span class="tab-ind" aria-hidden="true"></span>
+</nav>
+
+<dialog class="viewer" id="viewer" aria-labelledby="vTitle">
+  <div class="v-shell">
+    <div class="v-top">
+      <span class="v-count" id="vCount"></span>
+      <button class="v-close" id="vClose" type="button" aria-label="{{v_close}}"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="v-stage" id="vStage">
+      <div class="v-card" id="vCard">
+        <img id="vImg" alt="" width="360" height="360" draggable="false">
+        <span class="v-ribbon" id="vRibbon" hidden>{{gacha_ribbon}}</span>
+      </div>
+    </div>
+    <div class="v-meta" aria-live="polite">
+      <span class="v-cat" id="vCat"></span>
+      <h3 id="vTitle"></h3>
+      <p id="vSub"></p>
+    </div>
+    <div class="v-actions">
+      <button class="v-nav" id="vPrev" type="button" aria-label="{{v_prev}}"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button class="v-act primary" id="vShare" type="button"><svg aria-hidden="true"><use href="#i-share"/></svg>{{v_share}}</button>
+      <a class="v-act" id="vSave" href="#" download><svg aria-hidden="true"><use href="#i-down"/></svg>{{v_save}}</a>
+      <button class="v-nav" id="vNext" type="button" aria-label="{{v_next}}"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+    <p class="v-hint">{{v_hint}}</p>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="cfg">{{{cfg_json}}}</script>
+<script>{{{script}}}</script>
+</body>
+</html>
